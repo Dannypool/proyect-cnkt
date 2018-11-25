@@ -1,5 +1,23 @@
-<img id="main-logo" src="assets/img/icons/logo_u.png" alt="{{ 'MENU.LOGO' | translate}}">
-<a routerLink="/home">{{ 'MENU.HOME' | translate}}</a> |
-<a routerLink="/login">{{ 'MENU.LOGIN' | translate}}</a> |
-<a routerLink="/users">{{ 'MENU.USERS' | translate}}</a> |
-<a routerLink="/resources">{{ 'MENU.RESOURCES' | translate}}</a> |
+<nav id="menuContainer" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/home"><img id="main-logo" src="assets/img/logo_u.png" alt="{{ 'MENU.LOGO' | translate}}">
+        Prueba</a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/users">{{ 'MENU.USERS' | translate}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/resources">{{ 'MENU.RESOURCES' | translate}}</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <img class="img-fluid img-thumbnail rounded margin-r5 avatar-nav" src="assets/img/generic_avatar.png">
+            Chuck Norris
+           
+        </form>
+    </div>
+</nav>

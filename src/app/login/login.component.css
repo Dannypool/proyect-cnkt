@@ -1,0 +1,19 @@
+.loginContainer {
+    background: url('/assets/img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.center{
+    text-align: center !important;
+}
+
+.margin-top15{
+    margin-top: 15px;
+}
+
+.margin-bot15{
+    margin-bottom: 15px;
+}

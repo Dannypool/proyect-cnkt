@@ -5,6 +5,16 @@
       "RESOURCES": "Recursos",
       "LOGIN": "Login",
       "LOGO": "Logo de la app"
+    },
+    "LOGIN":{
+      "SINGUP": "Registrate",
+      "SINGUP_TEXT": "Ya tienes cuenta?",
+      "SINGIN": "Iniciar Sesion",
+      "SINGIN_TEXT": "No tienes cuenta?",
+      "ENTER_EMAIL": "Ingrese Email",
+      "ENTER_PASS": "Ingrese Contraseña",
+      "CONFIRM_PASS": "Confirmar contraseña",
+      "REGISTER": "Registrarse"
     }
   }
   
