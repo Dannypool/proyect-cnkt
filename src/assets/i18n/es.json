@@ -15,6 +15,11 @@
       "ENTER_PASS": "Ingrese Contraseña",
       "CONFIRM_PASS": "Confirmar contraseña",
       "REGISTER": "Registrarse"
+    },
+    "USERS":{
+      "FIRST_NAME": "Nombre",
+      "LAST_NAME": "Apellido",
+      "OPTIONS": "Opciones"
     }
   }
   
