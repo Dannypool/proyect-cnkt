@@ -4,6 +4,7 @@
       "USERS": "Usuarios",
       "RESOURCES": "Recursos",
       "LOGIN": "Login",
+      "LOGOUT": "Cerras Sesion",
       "LOGO": "Logo de la app"
     },
     "LOGIN":{

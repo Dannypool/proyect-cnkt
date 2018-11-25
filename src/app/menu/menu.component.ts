@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -11,9 +13,14 @@ export class MenuComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
-  constructor() { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.sessionService.logout()
+    this.router.navigate(['login'])
   }
 
 }

@@ -15,12 +15,12 @@
         <p *ngIf="operation == 'register'"  >{{'LOGIN.SINGUP_TEXT' | translate}}  <a (click)="operation = 'login'">{{'LOGIN.SINGIN' | translate}}</a></p>
         <p *ngIf="operation == 'login'" >{{'LOGIN.SINGIN_TEXT' | translate}}  <a (click)="operation = 'register'">{{'LOGIN.SINGUP' | translate}}</a></p>
         <div class="borderedContainer">
-          <input class="form-control  margin-bot15" type="email" placeholder="{{ 'LOGIN.ENTER_EMAIL' | translate }}">
-          <input class="form-control  margin-bot15" type="password" placeholder="{{ 'LOGIN.ENTER_PASS' | translate }}">
+          <input [(ngModel)]="email" class="form-control  margin-bot15" type="email" placeholder="{{ 'LOGIN.ENTER_EMAIL' | translate }}">
+          <input [(ngModel)]="pass" class="form-control  margin-bot15" type="password" placeholder="{{ 'LOGIN.ENTER_PASS' | translate }}">
           <input *ngIf="operation === 'register'" class="form-control  margin-bot15" type="password" placeholder="{{ 'LOGIN.CONFIRM_PASS'| translate }}">
         </div>
         <div class="center">
-          <div *ngIf="operation === 'login'" class="btn btn-primary">
+          <div type="submit"  *ngIf="operation === 'login'" class="btn btn-primary" (click)="tryLogin()">
               {{ 'LOGIN.SINGIN' | translate }}
           </div> 
           <div *ngIf="operation === 'register'" class="btn btn-primary">
