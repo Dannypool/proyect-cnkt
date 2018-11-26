@@ -7,11 +7,11 @@
 
     <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="/users">{{ 'MENU.USERS' | translate}}</a>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/users" routerLinkActive="active" >{{ 'MENU.USERS' | translate}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/resources">{{ 'MENU.RESOURCES' | translate}}</a>
+                <a class="nav-link" routerLink="/resources" routerLinkActive="active" >{{ 'MENU.RESOURCES' | translate}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" (click)="logout()">{{ 'MENU.LOGOUT' | translate}}</a>
