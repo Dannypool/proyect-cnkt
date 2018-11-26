@@ -30,12 +30,8 @@ export class UsersComponent implements OnInit {
         r => {
           this.users = r['data']
           this.pages = new Array(r['total_pages'])
-        },
-        r => {},
-        () => {
-          this.spinnerService.hideSpinner()
         }
-      )
+      ).add(() => this.spinnerService.hideSpinner())
   }
 
   getUser(id: number){
@@ -44,12 +40,9 @@ export class UsersComponent implements OnInit {
       .subscribe(
         r => {
           
-        },
-        r => {},
-        () => {
-          this.spinnerService.hideSpinner()
         }
-      )
+      ).add(() => this.spinnerService.hideSpinner())
+      
   }
 
   deleteUser(id: number){
@@ -58,12 +51,8 @@ export class UsersComponent implements OnInit {
       .subscribe(
         r => {
           
-        },
-        r => {},
-        () => {
-          this.spinnerService.hideSpinner()
         }
-      )
+      ).add(() => this.spinnerService.hideSpinner())
   }
 
   changePage(i: number){

@@ -15,6 +15,9 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { NeedAuthGuard } from './guard/need-auth.guard';
+import { ErrorsComponent } from './errors/errors-component/errors.component';
+import { ErrorsModule } from './errors';
+import { NotificationService } from './services/notification/notification.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [NeedAuthGuard]},
@@ -22,6 +25,8 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [NeedAuthGuard]},
   {path: 'users', component: UsersComponent, canActivate: [NeedAuthGuard]},
   {path: 'resources', component: ResourcesComponent, canActivate: [NeedAuthGuard]},
+  { path: 'error', component: ErrorsComponent },
+  { path: '**', component: ErrorsComponent, data: { error: 404 } },
 ]
 
 // required for AOT compilation
@@ -43,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
+    ErrorsModule,
     NgxSpinnerModule,
     TranslateModule.forRoot({
       loader: {
@@ -52,7 +58,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
   })
   ],
-  providers: [],
+  providers: [
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
