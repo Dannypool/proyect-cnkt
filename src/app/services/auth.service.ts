@@ -15,4 +15,8 @@ export class AuthService {
     });
   }
 
+  logout(): Observable<any>{
+    return this.http.get<any>('https://reqres.in/api/users?delay=3');
+  }
+
 }
