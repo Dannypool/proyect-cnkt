@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{'RESOURCES.RESOURCES_TITTLE' | translate}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span class="fas fa-times"></span>
+  </button>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-boy">
+    <div class="container">
+      <div class="form-group">
+        <label>{{'RESOURCES.NAME_COLOR' | translate}}</label>
+        <input type="text" class="form-control" [(ngModel)]="resource.name" formControlName="name" />
+      </div>
+      <div class="form-group">
+        <label>{{'RESOURCES.COLOR_HEX' | translate}}</label>
+        <input [(ngModel)]="resource.color" type="text" class="form-control" formControlName="color">
+      </div>
+      <div class="form-group">
+        <label>{{'RESOURCES.PANTONE' | translate}}</label>
+        <input [(ngModel)]="resource.pantone_value" type="text" class="form-control" formControlName="pantone_value">
+      </div>
+      <div class="form-group">
+        <label>{{'RESOURCES.YEAR' | translate}}</label>
+        <input [(ngModel)]="resource.year" type="text" class="form-control" formControlName="year">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success" [disabled]="!myForm.valid">
+      {{'USERS.SAVE' | translate}}
+    </button>
+  </div>
+</form>

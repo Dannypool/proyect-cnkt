@@ -20,6 +20,7 @@ import { ErrorsModule } from './errors';
 import { NotificationService } from './services/notification/notification.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserModalComponent } from './user-modal/user-modal.component';
+import { ResourceModalComponent } from './resource-modal/resource-modal.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [NeedAuthGuard]},
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UsersComponent,
     ResourcesComponent,
     MenuComponent,
-    UserModalComponent
+    UserModalComponent,
+    ResourceModalComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    UserModalComponent
+    UserModalComponent,
+    ResourceModalComponent
   ]
 })
 export class AppModule { }

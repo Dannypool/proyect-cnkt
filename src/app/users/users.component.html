@@ -1,6 +1,7 @@
 <div class="container">
   <div class="whiteBorderGlassBox">
-    <h1 class="mt-5">{{'USERS.USER_TITTLE' | translate}}<button type="button" (click)="addOpenModal()" class="btn btn-link"><span class="fas fa-plus"></span></button></h1>
+    <h1 class="mt-5">{{'USERS.USER_TITTLE' | translate}}<button type="button" (click)="addOpenModal()" class="btn btn-link"><span
+          class="fas fa-plus"></span></button></h1>
 
   </div>
 
@@ -30,8 +31,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
               <button (click)="deleteUser(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span class="fas fa-user-times"></span></button>
-              <button (click)="updateFormModal(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span
-                  class="far fa-edit"></span></button>
+              <button (click)="updateFormModal(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span class="far fa-edit"></span></button>
             </div>
           </div>
         </div>

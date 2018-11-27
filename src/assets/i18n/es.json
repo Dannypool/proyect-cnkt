@@ -25,10 +25,17 @@
       "FIRST_NAME": "Nombre",
       "LAST_NAME": "Apellido",
       "OPTIONS": "Opciones",
-      "NAME": "Nombre",
+      "NAME": "Apodo",
       "JOB": "Trabajo",
       "SAVE": "Guardar",
       "USER_TITTLE": "Usuarios"
+    },
+    "RESOURCES":{
+      "RESOURCES_TITTLE": "Recursos",
+      "PANTONE": "Pantone",
+      "YEAR": "Año",
+      "NAME_COLOR": "Color",
+      "COLOR_HEX": "Hexadecimal"
     }
   }
   
