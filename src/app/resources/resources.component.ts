@@ -3,7 +3,8 @@ import { ResourcesService } from '../services/resources.service';
 import { SpinnerService } from '../services/spinner.service';
 import { Resources } from '../models/resource';
 import { ResourceModalComponent } from '../resource-modal/resource-modal.component';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resources',
@@ -37,12 +38,38 @@ export class ResourcesComponent implements OnInit {
     ).add(() => this.spinnerService.hideSpinner())
   }
 
+  getResource(id: number): Observable<any> {
+    this.spinnerService.showSpinner()
+    return this.resorcesService.getResourceById(id)
+  }
+
+
   deleteResource(id: number){
     this.spinnerService.showSpinner()
     this.resorcesService.deleteResourceById(id)
       .subscribe(
         r => {
           alert("Usuario eliminado")
+        }
+      ).add(() => this.spinnerService.hideSpinner())
+  }
+
+  updateResource(resource: Resources) {
+    this.spinnerService.showSpinner()
+    this.resorcesService.updateResource(resource.id, resource.name, resource.color, resource.year, resource.pantone_value)
+      .subscribe(
+        r => {
+          alert("Recurso actualizado")
+        }
+      ).add(() => this.spinnerService.hideSpinner())
+  }
+
+  createResource(resource: Resources){
+    this.spinnerService.showSpinner()
+    this.resorcesService.createResource(resource.name, resource.color, resource.year, resource.pantone_value)
+      .subscribe(
+        r => {
+          alert("Recurso creado")
         }
       ).add(() => this.spinnerService.hideSpinner())
   }
@@ -66,14 +93,31 @@ export class ResourcesComponent implements OnInit {
     }
   }
 
+  updateFormModal(id: number) {
+    this.getResource(id).subscribe(
+      r => {
+        let resource: Resources
+        resource = r['data']
+        const modalRef = this.modalService.open(ResourceModalComponent)
+        modalRef.componentInstance.resource = resource
+        modalRef.result.then((result) => {
+          this.updateResource(result)
+        }).catch((error) => {
+        })
+      }
+    ).add(() => this.spinnerService.hideSpinner())
+  }
+
   addOpenModal() {
     const modalRef = this.modalService.open(ResourceModalComponent)
     let newResource = {} as Resources
     modalRef.componentInstance.resource = newResource
     modalRef.result.then((result) => {
-      //this.createUser(result)
+      this.createResource(result)
     }).catch((error) => {
     })
   }
+
+  
 
 }
