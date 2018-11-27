@@ -1,18 +1,19 @@
 <div class="container">
   <div class="whiteBorderGlassBox">
-    <h1 class="mt-5">Usuarios</h1>
+    <h1 class="mt-5">{{'USERS.USER_TITTLE' | translate}}<button type="button" (click)="addOpenModal()" class="btn btn-link"><span class="fas fa-plus"></span></button></h1>
+
   </div>
 
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item" [ngClass]="{ 'disabled': page == 1 }">
-        <a class="page-link" (click)="previousPage()">Previous</a>
+        <a class="page-link" (click)="previousPage()">{{'COMMON.BACK' | translate}}</a>
       </li>
       <li class="page-item" *ngFor="let page_number of pages;  index as i" [ngClass]="{ 'active': page == i + 1 }">
-        <a class="page-link" (click)="changePage(i)" >{{i + 1}}</a>
+        <a class="page-link" (click)="changePage(i)">{{i + 1}}</a>
       </li>
       <li class="page-item" [ngClass]="{ 'disabled': pages?.length == page }">
-        <a class="page-link" (click)="nextPage()" >Next</a>
+        <a class="page-link" (click)="nextPage()">{{'COMMON.NEXT' | translate}}</a>
       </li>
     </ul>
   </nav>
@@ -20,20 +21,21 @@
 
 <div class="container">
   <div class="row justify-content-md-center">
-      <div class="col-md-4" *ngFor="let user of users">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
-            <div class="card-body">
-              <h4>ID {{user.id}}</h4>
-              <p class="card-text">{{user.first_name}} {{user.last_name}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button (click)="deleteUser(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span class="fas fa-user-times"></span></button>
-                  <button (click)="getUser(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span class="far fa-edit"></span></button>
-                </div>
-              </div>
+    <div class="col-md-4" *ngFor="let user of users">
+      <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+        <div class="card-body">
+          <h4>ID {{user.id}}</h4>
+          <p class="card-text">{{user.first_name}} {{user.last_name}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button (click)="deleteUser(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span class="fas fa-user-times"></span></button>
+              <button (click)="updateFormModal(user.id)" type="button" class="btn btn-sm btn-outline-secondary"><span
+                  class="far fa-edit"></span></button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
   </div>
 </div>

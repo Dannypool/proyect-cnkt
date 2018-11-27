@@ -28,4 +28,11 @@ export class UsersService {
     });
   }
 
+  updateUser(name: string, job: string, id: number): Observable<any>{
+    return this.http.put<any>('https://reqres.in/api/users/' + id, {
+      name: name,
+      job: job
+    });
+  }
+
 }

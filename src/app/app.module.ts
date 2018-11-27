@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -18,6 +18,8 @@ import { NeedAuthGuard } from './guard/need-auth.guard';
 import { ErrorsComponent } from './errors/errors-component/errors.component';
 import { ErrorsModule } from './errors';
 import { NotificationService } from './services/notification/notification.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserModalComponent } from './user-modal/user-modal.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [NeedAuthGuard]},
@@ -41,13 +43,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     UsersComponent,
     ResourcesComponent,
-    MenuComponent
+    MenuComponent,
+    UserModalComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ErrorsModule,
     NgxSpinnerModule,
     TranslateModule.forRoot({
@@ -61,6 +66,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     NotificationService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    UserModalComponent
+  ]
 })
 export class AppModule { }
