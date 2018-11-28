@@ -27,6 +27,10 @@ export class ErrorsHandler implements ErrorHandler {
       }
       // Http Error
       // Send the error to the server
+      if (error.status === 404) {
+        alert("404 Not found... ")
+      }
+     
       errorsService.log(error).subscribe();
       // Show notification to the user
       return notificationService.notify(`${error.status} - ${error.message}`);
