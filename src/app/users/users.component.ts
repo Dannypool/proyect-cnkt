@@ -40,7 +40,6 @@ export class UsersComponent implements OnInit {
   getUser(id: number): Observable<any> {
     this.spinnerService.showSpinner()
     return this.usersService.getUserById(id)
-
   }
 
   deleteUser(id: number) {

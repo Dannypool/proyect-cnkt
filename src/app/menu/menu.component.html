@@ -1,26 +1,45 @@
-<nav id="menuContainer" class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/home"><img id="main-logo" src="assets/img/logo_u.png" alt="{{ 'MENU.LOGO' | translate}}">
-        Prueba</a>
-    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<header id="mainHeader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 hidden-sm-down">
+                <!-- <a class="navbar-brand" routerLink="/home">
+                    <img id="logo_img" src="assets/img/logo_u.png" alt="{{ 'MENU.LOGO' | translate}}">
+                    Prueba</a> -->
+                <img src="assets/img/logo_u.png" class="logo" routerLink="/home">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-8">
+                <nav class="navbar navbar-expand-md">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+                        (click)="isCollapsedMenu = !isCollapsedMenu" [attr.aria-expanded]="isCollapsedMenu">
+                        <i class="ico ico-menu"></i>
+                    </button>
+                    <img src="assets/img/logo_u.png" class="logo centered hidden-md-up">
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngbCollapse]="!isCollapsedMenu">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active" href="#">{{
+                                'MENU.USERS' | translate}} <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" routerLink="/resources" routerLinkActive="active">{{
+                                'MENU.RESOURCES' | translate}}</a>
+                        </div>
+                    </div>
+                </nav>
 
-    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/users" routerLinkActive="active" >{{ 'MENU.USERS' | translate}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/resources" routerLinkActive="active" >{{ 'MENU.RESOURCES' | translate}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="logout()">{{ 'MENU.LOGOUT' | translate}}</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <img class="img-fluid img-thumbnail rounded margin-r5 avatar-nav" src="assets/img/generic_avatar.png">
-            Chuck Norris
-           
-        </form>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 text-right">
+                <div class="dropdown show">
+                    <a class="btn profile dropdown-toggle" role="button" id="profile" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"
+                        (click)="isCollapsedUser = !isCollapsedUser" [attr.aria-expanded]="isCollapsedUser"
+                        [style.background-image]="'url(' +  user?.avatar + ')'"></a>
+
+                    <div class="dropdown-menu" aria-labelledby="profile" [ngbCollapse]="!isCollapsedUser">
+                        <p class="dropdown-item">{{ user?.first_name}} {{ user?.last_name }}</p>
+                        <p class="dropdown-item"><span>Último acceso: 12/09/2018, 13:12 h</span></p>
+                        <a class="dropdown-item" (click)="logout()"><i class="ico ico-exit"></i> {{ 'MENU.LOGOUT' | translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
+</header>

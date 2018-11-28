@@ -1,33 +1,28 @@
-<div class="loginContainer">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-md-3">
-        <div class="avatarFrame margin-top15 margin-bot15">
-          <img src="assets/img/generic_avatar.png" alt="" class="img-thumbnail">
+<div class="container login">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <img src="assets/img/logo_u.png">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Contraseña">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <p *ngIf="operation == 'register'"  >{{'LOGIN.SINGUP_TEXT' | translate}}  <a (click)="operation = 'login'">{{'LOGIN.SINGIN' | translate}}</a></p>
+                            <p *ngIf="operation == 'login'"  >{{'LOGIN.SINGIN_TEXT' | translate}}  <a (click)="operation = 'register'">{{'LOGIN.SINGUP' | translate}}</a></p>
+                            <button *ngIf="operation == 'register'"   class="btn btn-block green">{{'LOGIN.SINGUP' | translate}}</button>
+                            <button *ngIf="operation == 'login'" class="btn btn-block green" (click)="tryLogin()">{{'LOGIN.SINGIN' | translate}}</button>
+                            <!-- <p *ngIf="operation == 'register'"  >{{'LOGIN.SINGUP_TEXT' | translate}}  <a (click)="operation = 'login'">{{'LOGIN.SINGIN' | translate}}</a></p>
+                            <p *ngIf="operation == 'login'" >{{'LOGIN.SINGIN_TEXT' | translate}}  <a (click)="operation = 'register'">{{'LOGIN.SINGUP' | translate}}</a></p> -->
+                            <!-- <button class="btn btn-block green">Entrar</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row justify-content-md-center">
-      <div class="col-md-6">
-        <div class="center">
-          <h3>{{ 'LOGIN.SINGIN' | translate }}</h3>
-        </div>
-        <p *ngIf="operation == 'register'"  >{{'LOGIN.SINGUP_TEXT' | translate}}  <a (click)="operation = 'login'">{{'LOGIN.SINGIN' | translate}}</a></p>
-        <p *ngIf="operation == 'login'" >{{'LOGIN.SINGIN_TEXT' | translate}}  <a (click)="operation = 'register'">{{'LOGIN.SINGUP' | translate}}</a></p>
-        <div class="borderedContainer">
-          <input [(ngModel)]="email" class="form-control  margin-bot15" type="email" placeholder="{{ 'LOGIN.ENTER_EMAIL' | translate }}">
-          <input [(ngModel)]="pass" class="form-control  margin-bot15" type="password" placeholder="{{ 'LOGIN.ENTER_PASS' | translate }}">
-          <input *ngIf="operation === 'register'" class="form-control  margin-bot15" type="password" placeholder="{{ 'LOGIN.CONFIRM_PASS'| translate }}">
-        </div>
-        <div class="center">
-          <div type="submit"  *ngIf="operation === 'login'" class="btn btn-primary" (click)="tryLogin()">
-              {{ 'LOGIN.SINGIN' | translate }}
-          </div> 
-          <div *ngIf="operation === 'register'" class="btn btn-primary">
-              {{ 'LOGIN.REGISTER' | translate }}
-          </div>  
-        </div>
-      </div>
     </div>
   </div>
-</div>
