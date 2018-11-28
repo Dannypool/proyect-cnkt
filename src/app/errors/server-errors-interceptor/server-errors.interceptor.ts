@@ -1,19 +1,17 @@
-import { Injectable } from '@angular/core';
+import { ErrorsService } from '../errors-service/errors.service';
 import {
-  HttpRequest,
-  HttpHandler,
+  HttpErrorResponse,
   HttpEvent,
+  HttpHandler,
   HttpInterceptor,
-  HttpErrorResponse
-} from '@angular/common/http';
-import { Router } from '@angular/router';
-
+  HttpRequest
+  } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/retry';
-
-import { ErrorsService } from '../errors-service/errors.service';
 
 @Injectable()
 export class ServerErrorsInterceptor implements HttpInterceptor {

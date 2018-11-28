@@ -1,8 +1,8 @@
+import { AuthService } from '../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { SessionService } from '../services/session.service';
-import { SpinnerService } from '../services/spinner.service';
+import { SessionService } from '../shared/services/session.service';
+import { SpinnerService } from '../shared/services/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +11,10 @@ import { SpinnerService } from '../services/spinner.service';
 })
 export class LoginComponent implements OnInit {
 
-  public email: string = 'peter@klaven'
-  public pass: string = 'cityslicka'
+  public email = 'peter@klaven';
+  public pass = 'cityslicka';
 
-  operation: string = 'login'
+  operation = 'login';
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   trySingup() {
-    this.spinnerService.showSpinner()
+    this.spinnerService.showSpinner();
     this.authService.singup(
       this.email,
       this.pass
@@ -39,11 +39,11 @@ export class LoginComponent implements OnInit {
         }
 
       ).add(() => {
-        this.spinnerService.hideSpinner()
-      })
+        this.spinnerService.hideSpinner();
+      });
   }
   tryLogin() {
-    this.spinnerService.showSpinner()
+    this.spinnerService.showSpinner();
     this.authService.login(
       this.email,
       this.pass
@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
         }
 
       ).add(() => {
-        this.spinnerService.hideSpinner()
-      })
+        this.spinnerService.hideSpinner();
+      });
   }
 
 }

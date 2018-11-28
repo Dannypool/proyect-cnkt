@@ -13,8 +13,8 @@ export class SessionService {
     localStorage.setItem(TOKEN, token);
   }
 
-  logout(): void{
-    localStorage.clear()
+  logout(): void {
+    localStorage.clear();
   }
 
   isLogged() {

@@ -1,26 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
-import { ResourcesComponent } from './resources/resources.component';
-import { Routes, RouterModule } from '@angular/router';
-import { MenuComponent } from './menu/menu.component';
-import { NgxSpinnerModule } from 'ngx-spinner';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { NeedAuthGuard } from './guard/need-auth.guard';
+import { BrowserModule } from '@angular/platform-browser';
 import { ErrorsComponent } from './errors/errors-component/errors.component';
 import { ErrorsModule } from './errors';
-import { NotificationService } from './services/notification/notification.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { NeedAuthGuard } from './shared/guard/need-auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UserModalComponent } from './user-modal/user-modal.component';
+import { NgModule } from '@angular/core';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NotificationService } from './shared/services/notification/notification.service';
 import { ResourceModalComponent } from './resource-modal/resource-modal.component';
+import { ResourcesComponent } from './resources/resources.component';
+import { RouterModule, Routes } from '@angular/router';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { UserModalComponent } from './user-modal/user-modal.component';
+import { UsersComponent } from './users/users.component';
+
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [NeedAuthGuard]},
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   {path: 'resources', component: ResourcesComponent, canActivate: [NeedAuthGuard]},
   { path: 'error', component: ErrorsComponent },
   { path: '**', component: ErrorsComponent, data: { error: 404 } },
-]
+];
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {

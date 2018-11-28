@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +9,19 @@ export class ResourcesService {
 
   constructor(private http: HttpClient) { }
 
-  getResources(page: number): Observable<any>{
+  getResources(page: number): Observable<any> {
     return this.http.get<any>('https://reqres.in/api/unknown?page=' + page);
   }
 
-  getResourceById(id: number): Observable<any>{
+  getResourceById(id: number): Observable<any> {
     return this.http.get<any>('https://reqres.in/api/unknown/' + id);
   }
 
-  deleteResourceById(id: number): Observable<any>{
+  deleteResourceById(id: number): Observable<any> {
     return this.http.delete<any>('https://reqres.in/api/unknown/' + id);
   }
 
-  createResource(name: string, color: string, year: number, pantone_value: string): Observable<any>{
+  createResource(name: string, color: string, year: number, pantone_value: string): Observable<any> {
     return this.http.post<any>('https://reqres.in/api/unknown', {
       name: name,
       color: color,
@@ -30,7 +30,7 @@ export class ResourcesService {
     });
   }
 
-  updateResource(id: number,name: string, color: string, year: number, pantone_value: string): Observable<any>{
+  updateResource(id: number, name: string, color: string, year: number, pantone_value: string): Observable<any> {
     return this.http.put<any>('https://reqres.in/api/unknown/' + id, {
       name: name,
       color: color,

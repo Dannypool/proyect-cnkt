@@ -1,12 +1,12 @@
-import { ErrorHandler, Injectable, Injector} from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import * as StackTraceParser from 'error-stack-parser';
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { Event, NavigationError, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router, Event, NavigationError } from '@angular/router';
-
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import * as StackTraceParser from 'error-stack-parser';
+
 
 @Injectable()
 export class ErrorsService {
@@ -17,14 +17,14 @@ export class ErrorsService {
   ) {
     // Subscribe to the NavigationError
     this.router
-          .events  
-          .subscribe((event: Event) => { 
+          .events
+          .subscribe((event: Event) => {
             if (event instanceof NavigationError) {
                 // Redirect to the ErrorComponent
                 this.log(event.error)
-                        .subscribe((errorWithContext) => { 
-                          this.router.navigate(['/error'], { queryParams: errorWithContext })
-                        });                
+                        .subscribe((errorWithContext) => {
+                          this.router.navigate(['/error'], { queryParams: errorWithContext });
+                        });
             }
           });
   }
@@ -34,7 +34,7 @@ export class ErrorsService {
     console.error(error);
     // Send error to server
     const errorToSend = this.addContextInfo(error);
-    return fakeHttpService.post(errorToSend);
+    return FakeHttpService.post(errorToSend);
   }
 
   addContextInfo(error) {
@@ -56,7 +56,7 @@ export class ErrorsService {
 
 }
 
-class fakeHttpService {
+class FakeHttpService {
   static post(error): Observable<any> {
     console.log('Error sent to the server: ', error);
     return Observable.of(error);

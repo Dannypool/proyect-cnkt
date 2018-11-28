@@ -1,11 +1,11 @@
-import { TestBed, inject } from '@angular/core/testing';
-import {RouterTestingModule} from '@angular/router/testing'
 import { ErrorsService } from './errors.service';
+import { inject, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ErrorsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[RouterTestingModule],
+      imports: [RouterTestingModule],
       providers: [ErrorsService]
     });
   });

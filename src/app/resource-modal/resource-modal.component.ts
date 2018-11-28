@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Resources } from '../models/resource';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Resources } from '../shared/models/resource';
 
 @Component({
   selector: 'app-resource-modal',

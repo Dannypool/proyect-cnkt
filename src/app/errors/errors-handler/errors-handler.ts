@@ -1,12 +1,9 @@
-
-import { ErrorHandler, Injectable, Injector} from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-
 import * as StackTraceParser from 'error-stack-parser';
-
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { ErrorsService } from '../errors-service/errors.service';
-import { NotificationService } from '../../services/notification/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationService } from '../../shared/services/notification/notification.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorsHandler implements ErrorHandler {
@@ -18,9 +15,9 @@ export class ErrorsHandler implements ErrorHandler {
     const notificationService = this.injector.get(NotificationService);
     const errorsService = this.injector.get(ErrorsService);
     const router = this.injector.get(Router);
-    
-    if (error instanceof HttpErrorResponse) {      
-    // Server error happened      
+
+    if (error instanceof HttpErrorResponse) {
+    // Server error happened
       if (!navigator.onLine) {
         // No Internet connection
         return notificationService.notify('No Internet Connection');
@@ -28,9 +25,9 @@ export class ErrorsHandler implements ErrorHandler {
       // Http Error
       // Send the error to the server
       if (error.status === 404) {
-        alert("404 Not found... ")
+        alert('404 Not found... ');
       }
-     
+
       errorsService.log(error).subscribe();
       // Show notification to the user
       return notificationService.notify(`${error.status} - ${error.message}`);
