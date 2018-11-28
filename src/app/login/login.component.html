@@ -14,7 +14,7 @@
                         <div class="col-md-10 offset-md-1">
                             <p *ngIf="operation == 'register'"  >{{'LOGIN.SINGUP_TEXT' | translate}}  <a (click)="operation = 'login'">{{'LOGIN.SINGIN' | translate}}</a></p>
                             <p *ngIf="operation == 'login'"  >{{'LOGIN.SINGIN_TEXT' | translate}}  <a (click)="operation = 'register'">{{'LOGIN.SINGUP' | translate}}</a></p>
-                            <button *ngIf="operation == 'register'"   class="btn btn-block green">{{'LOGIN.SINGUP' | translate}}</button>
+                            <button *ngIf="operation == 'register'"   class="btn btn-block green" (click)="trySingup()">{{'LOGIN.SINGUP' | translate}}</button>
                             <button *ngIf="operation == 'login'" class="btn btn-block green" (click)="tryLogin()">{{'LOGIN.SINGIN' | translate}}</button>
                             <!-- <p *ngIf="operation == 'register'"  >{{'LOGIN.SINGUP_TEXT' | translate}}  <a (click)="operation = 'login'">{{'LOGIN.SINGIN' | translate}}</a></p>
                             <p *ngIf="operation == 'login'" >{{'LOGIN.SINGIN_TEXT' | translate}}  <a (click)="operation = 'register'">{{'LOGIN.SINGUP' | translate}}</a></p> -->

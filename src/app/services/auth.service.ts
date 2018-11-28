@@ -15,6 +15,13 @@ export class AuthService {
     });
   }
 
+  singup(email: string, password: string): Observable<any>{
+    return this.http.post<any>('https://reqres.in/api/register', {
+      email: email,
+      password: password
+    });
+  }
+
   logout(): Observable<any>{
     return this.http.get<any>('https://reqres.in/api/users?delay=3');
   }

@@ -16,14 +16,32 @@ export class LoginComponent implements OnInit {
 
   operation: string = 'login'
   constructor(
-    private authService: AuthService, 
-    private router: Router, 
+    private authService: AuthService,
+    private router: Router,
     private sessionService: SessionService,
     private spinnerService: SpinnerService) { }
 
   ngOnInit() {
   }
 
+  trySingup() {
+    this.spinnerService.showSpinner()
+    this.authService.singup(
+      this.email,
+      this.pass
+    )
+      .subscribe(
+        r => {
+          if (r.token) {
+            this.sessionService.setToken(r.token);
+            this.router.navigateByUrl('/home');
+          }
+        }
+
+      ).add(() => {
+        this.spinnerService.hideSpinner()
+      })
+  }
   tryLogin() {
     this.spinnerService.showSpinner()
     this.authService.login(
@@ -36,13 +54,11 @@ export class LoginComponent implements OnInit {
             this.sessionService.setToken(r.token);
             this.router.navigateByUrl('/home');
           }
-        },
-        r => {
-          alert(r.error.error);
-        },
-        () => {
-          this.spinnerService.hideSpinner()
-        });
-  } 
+        }
+
+      ).add(() => {
+        this.spinnerService.hideSpinner()
+      })
+  }
 
 }
