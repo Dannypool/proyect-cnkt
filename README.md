@@ -1,6 +1,17 @@
 # ProyectCnkt
 
+This is a project for the technical test. I hope you like it =)
+
+This project needs Node.js to execute certain commands, if you do not have it, please visit `https://nodejs.org/` and follow the instructions to install it
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.2.
+
+If you do not have the angle angle "`npm install -g @angular/cli`" installed to install it globally on your computer
+
+
+## Install dependencies
+
+Run `npm install -g @angular/cli` to install all the dependencies necessary for it to work correctly.
 
 ## Development server
 
@@ -18,10 +29,3 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
