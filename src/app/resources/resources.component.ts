@@ -16,6 +16,7 @@ export class ResourcesComponent implements OnInit {
   public page = 1;
   public pages: Array<number> = new Array(1);
   public resources: Resources[];
+  public successMessage: string;
 
   constructor(
     private resorcesService: ResourcesService,
@@ -49,7 +50,7 @@ export class ResourcesComponent implements OnInit {
     this.resorcesService.deleteResourceById(id)
       .subscribe(
         r => {
-          alert('Usuario eliminado');
+          this.successMessage = 'Recurso eliminado';
         }
       ).add(() => this.spinnerService.hideSpinner());
   }
@@ -59,7 +60,7 @@ export class ResourcesComponent implements OnInit {
     this.resorcesService.updateResource(resource.id, resource.name, resource.color, resource.year, resource.pantone_value)
       .subscribe(
         r => {
-          alert('Recurso actualizado');
+          this.successMessage = 'Recurso actualizado';
         }
       ).add(() => this.spinnerService.hideSpinner());
   }
@@ -69,7 +70,7 @@ export class ResourcesComponent implements OnInit {
     this.resorcesService.createResource(resource.name, resource.color, resource.year, resource.pantone_value)
       .subscribe(
         r => {
-          alert('Recurso creado');
+          this.successMessage = 'Recurso creado';
         }
       ).add(() => this.spinnerService.hideSpinner());
   }

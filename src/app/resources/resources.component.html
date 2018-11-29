@@ -5,6 +5,8 @@
 
   </div>
 
+  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item" [ngClass]="{ 'disabled': page == 1 }">
