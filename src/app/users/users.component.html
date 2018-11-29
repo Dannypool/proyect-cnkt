@@ -5,6 +5,8 @@
 
   </div>
 
+  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item" [ngClass]="{ 'disabled': page == 1 }">
@@ -22,8 +24,8 @@
 
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-md-4" *ngFor="let user of users">
-      <div class="card mb-4 shadow-sm">
+    <div class="col-md-3" *ngFor="let user of users">
+      <div class="card mb-3 shadow-sm">
         <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
         <div class="card-body">
           <h4>ID {{user.id}}</h4>

@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit {
   public page = 1;
   public pages: Array<number> = new Array(1);
   public users: Users[];
+  public successMessage: string;
 
   constructor(
     private usersService: UsersService,
@@ -47,7 +48,8 @@ export class UsersComponent implements OnInit {
     this.usersService.deleteUserById(id)
       .subscribe(
         r => {
-          alert('Usuario eliminado');
+          this.successMessage = 'Usuario eliminado';
+          // alert('Usuario eliminado');
         }
       ).add(() => this.spinnerService.hideSpinner());
   }
@@ -57,7 +59,7 @@ export class UsersComponent implements OnInit {
     this.usersService.updateUser(user.name, user.job, user.id)
       .subscribe(
         r => {
-          alert('Usuario actualizado');
+          this.successMessage = 'Usuario actualizado';
         }
       ).add(() => this.spinnerService.hideSpinner());
   }
@@ -67,7 +69,7 @@ export class UsersComponent implements OnInit {
     this.usersService.createUser(user.name, user.job)
       .subscribe(
         r => {
-          alert('Usuario creado');
+          this.successMessage = 'Usuario creado';
         }
       ).add(() => this.spinnerService.hideSpinner());
   }
