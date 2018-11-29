@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Resources } from '../shared/models/resource';
 
@@ -22,10 +22,10 @@ export class ResourceModalComponent  {
 
   private createForm() {
     this.myForm = this.formBuilder.group({
-      name: '',
-      color: '',
-      pantone_value: '',
-      year: ''
+      name: ['', Validators.required],
+      color: ['', Validators.required],
+      pantone_value: ['', Validators.required],
+      year: ['', Validators.required]
     });
   }
 

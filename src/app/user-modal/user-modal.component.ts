@@ -32,10 +32,10 @@ export class UserModalComponent {
 
   private createForm() {
     this.myForm = this.formBuilder.group({
-      first_name: '',
-      last_name: '',
-      job: '',
-      name: ''
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      job: ['', Validators.required],
+      name: ['', Validators.required]
     });
   }
 
