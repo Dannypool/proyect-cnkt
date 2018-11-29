@@ -38,6 +38,10 @@ export class MenuComponent implements OnInit {
     }).add(() => this.spinnerService.hideSpinner());
   }
 
+  isLogin() {
+    return this.sessionService.isLogged();
+  }
+
   logout() {
     this.spinnerService.showSpinner();
     this.authService.logout(
