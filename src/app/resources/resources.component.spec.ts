@@ -3,6 +3,7 @@ import { DATA_RESOURCES_FAKE } from './../shared/models/fixtures/resource.fake.s
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpLoaderFactory } from '../app.module';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { ResourcesComponent } from './resources.component';
 import { ResourcesProxyServiceFake } from '../shared/services/fixtures/resources-proxy.service.fake.spec';
@@ -29,7 +30,10 @@ describe('ResourcesComponent', () => {
           }
         })
       ],
-      declarations: [ ResourcesComponent ],
+      declarations: [
+        ResourcesComponent,
+        NgbAlert
+      ],
       providers: [
         TranslateService,
         {provide: ResourcesService, useClass: ResourcesProxyServiceFake}

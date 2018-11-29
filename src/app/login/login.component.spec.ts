@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpLoaderFactory } from '../app.module';
@@ -18,6 +19,8 @@ describe('LoginComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,

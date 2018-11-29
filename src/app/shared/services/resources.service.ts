@@ -7,22 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class ResourcesService {
 
+  public baseUrl = 'https://reqres.in/';
+
   constructor(private http: HttpClient) { }
 
   getResources(page: number): Observable<any> {
-    return this.http.get<any>('https://reqres.in/api/unknown?page=' + page);
+    return this.http.get<any>(this.baseUrl + 'api/unknown?page=' + page);
   }
 
   getResourceById(id: number): Observable<any> {
-    return this.http.get<any>('https://reqres.in/api/unknown/' + id);
+    return this.http.get<any>(this.baseUrl + 'api/unknown/' + id);
   }
 
   deleteResourceById(id: number): Observable<any> {
-    return this.http.delete<any>('https://reqres.in/api/unknown/' + id);
+    return this.http.delete<any>(this.baseUrl + 'api/unknown/' + id);
   }
 
   createResource(name: string, color: string, year: number, pantone_value: string): Observable<any> {
-    return this.http.post<any>('https://reqres.in/api/unknown', {
+    return this.http.post<any>(this.baseUrl + 'api/unknown', {
       name: name,
       color: color,
       year: year,
@@ -31,7 +33,7 @@ export class ResourcesService {
   }
 
   updateResource(id: number, name: string, color: string, year: number, pantone_value: string): Observable<any> {
-    return this.http.put<any>('https://reqres.in/api/unknown/' + id, {
+    return this.http.put<any>(this.baseUrl + 'api/unknown/' + id, {
       name: name,
       color: color,
       year: year,
