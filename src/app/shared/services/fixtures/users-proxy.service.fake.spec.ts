@@ -21,6 +21,14 @@ export class UsersProxyServiceFake {
     return Observable.of(response.json());
   }
 
+  getUserById(id: number): Observable<any> {
+    const responseOptions: ResponseOptions = new ResponseOptions({
+      body: DATA_USERS_FAKE.user
+    });
+    const response: Response = new Response(responseOptions);
+    return Observable.of(response.json());
+  }
+
   updateUser(name: string, job: string, id: number): Observable<any> {
     const responseOptions: ResponseOptions = new ResponseOptions({
       body: DATA_USERS_FAKE.user
