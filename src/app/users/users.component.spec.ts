@@ -7,7 +7,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { UsersComponent } from './users.component';
-import { UsersProxyServiceFake } from '../shared/services/fixtures/users-proxy.service.fake.spec';
+import { UsersProxyServiceFake } from './../shared/services/fixtures/users-proxy.service.fake.spec';
 import { UsersService } from '../shared/services/users.service';
 
 describe('UsersComponent', () => {
