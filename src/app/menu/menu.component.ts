@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
 
   navbarOpen = false;
   isCollapsedMenu = false;
-  isCollapsedUser = true;
+  isCollapsedUser = false;
   user: Users;
 
   toggleNavbar() {
